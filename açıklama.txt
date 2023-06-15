@@ -1,0 +1,40 @@
+flappy_bird.py
+Algorithm Description:
+
+It sets up the game window, loads images for the background, bird, and pipes, and initializes variables.
+
+The drawWin() function is responsible for rendering the game window with the current state of the game.
+
+The game logic consists of functions for bird movement, pipe movement, collision detection, and game reset.
+
+There are AI-related functions for getting the current state, choosing an action based on the Q-learning algorithm, and calculating the reward.
+
+The main game loop handles user input for jumping (if in human mode) and updates the game state based on the player's input or AI action.
+
+The game loop also checks for collisions, moves the bird and pipes, updates the score, and handles game over conditions.
+
+If in AI mode, the Q-learning algorithm updates the Q-values based on the current and next states and the obtained reward.
+
+The game continues until the player quits or the maximum number of turns is reached.
+
+At the end of the game, the best score achieved is printed.
+
+Overall, the code provides a basic implementation of the Flappy Bird game with the ability to play as a human or let an AI agent play using Q-learning.
+
+
+ql.py, Algortihm Description:
+This code defines a Q-learning class called ql (short for Q-Learning). Here's a breakdown of what the code does:
+
+The ql class has an initialization method (__init__) that takes four parameters: StateN (number of states), ActionN (number of actions), LearnRate (learning rate), and Discount (discount factor). It initializes the Q-table as a 2D list of random values between -1 and 1.
+
+The Reward method takes in the current state (state), the next state (newstate), and the reward obtained from the environment. It updates the Q-table based on the Q-learning algorithm. It selects the action with the highest Q-value for the next state and calculates the maximum Q-value. Then it updates the Q-value for the current state and the selected action using the learning rate, discount factor, and the obtained reward.
+
+The Action method takes in the current state and returns the action with the highest Q-value for that state.
+
+The Load method is used to load a previously saved Q-table from a JSON file. It reads the JSON file, parses the content, and assigns it to the Q-table attribute.
+
+The code also includes a conditional statement inside the Reward method to save the Q-table as a JSON file every 2000 generations. The filename includes the generation number.
+
+Overall, this code implements the Q-learning algorithm with a Q-table to learn and make decisions based on the learned values. It provides methods to update the Q-table, choose the best action, and load a previously saved Q-table.
+
+
